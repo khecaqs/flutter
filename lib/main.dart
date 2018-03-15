@@ -19,10 +19,11 @@ class HomePageState extends State<HomePage> {
 
   //List data;
   List data;
-  
+  final String _userID = '2';
+
   Future getData() async {
-      var response = await http.get(
-        Uri.encodeFull("https://jsonplaceholder.typicode.com/posts/?"),
+     var response = await http.get(
+        Uri.encodeFull("https://jsonplaceholder.typicode.com/posts/?userId="+_userID),
         headers: {
           "Accept": "application/json"
         }
@@ -31,11 +32,11 @@ class HomePageState extends State<HomePage> {
      //set state untuk data render atau listview
       this.setState((){
         data = JSON.decode(response.body);
-        //data.where((f) => f.toString('1')).toList();
       });
       
       //print(data[1]["body"]);
-      print(data[1]["id"]);
+      print(data[1]["title"]);
+      print(data[2]["body"]);
       
       return "Success!";
     }
@@ -59,6 +60,7 @@ class HomePageState extends State<HomePage> {
           return new Card(        // widget paparan
             child: new Column(
               children: <Widget>[
+                    new Text(data[index]["id"].toString()),
                     new Text(data[index]["title"]),
                     new Text(data[index]["body"]),
               ],
