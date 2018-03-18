@@ -5,6 +5,7 @@ class settings extends StatelessWidget {
  Widget build(BuildContext context) {
    return new Center(
      child: new Text('Setting Here'),
+     
    );
  }
 
