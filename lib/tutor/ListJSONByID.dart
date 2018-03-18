@@ -35,8 +35,8 @@ class HomePageState extends State<HomePage> {
       });
       
       //print(data[1]["body"]);
-      print(data[1]["title"]);
-      print(data[2]["body"]);
+      //print(data[1]["title"]);
+      //print(data[2]["body"]);
       
       return "Success!";
     }
